@@ -8,19 +8,32 @@
 				padding-left: 100px;
 				padding-right: 100px;
 			}
+			#weather {
+				background: lightgreen;
+				padding: 5px;
+			}
 		</style>
 	</head>
 	<body>
 		<h1>Headlines</h1>
+		<div id="weather">
+		<h2>Current weather</h2>
 		<form>
-			<input type="text" name="publication">
+			<input type="text" name="city" placeholder="Weather search">
+			<input type="submit" value="Submit">
+		</form>
+		<p>City: <strong>{{weather.city}}, {{weather.country}}</strong></p>
+		<p>{{weather.description}}  |  {{weather.temperature}}&#8451;</p>
+		</div>
+		<form>
+			<input type="text" name="publication" placeholder="Publication search">
 			<input type="submit" value="Submit">
 		</form>
 		{% for article in articles %}
 		<strong><a href="{{article.link}}">{{article.title}}</a></strong><br>
 		<em>{{article.published}}</em><br>
 		
-		<!--<p>{{article.summary}}</p>-->
+		<p>{{article.summary}}</p>
 		<hr>
 		{% endfor %}
 	</body>
